@@ -362,6 +362,18 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .footer__row a:hover { color: var(--acid); }
 
+/* ── dedos, no mouse ──────────────────────────────────────
+   Sin hover que valga y con targets de al menos 40px. */
+
+@media (pointer: coarse) {
+  .btn { padding: var(--s4) var(--s5); min-height: 48px; }
+  .btn--sm { min-height: 40px; }
+  .btn:hover::after { transform: translateY(101%); }
+  .btn:hover { color: var(--btn-fg); border-color: var(--btn-bd); }
+  .linkish { padding: var(--s2) 0; }
+  .stepper { width: 48px; height: 48px; }
+}
+
 /* ── movimiento reducido ──────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

@@ -216,19 +216,25 @@
 }
 
 @media (max-width: 1024px) {
-  .dial { grid-template-columns: 1fr; }
-  .dial__ring { aspect-ratio: auto; }
+  /* minmax(0,...) y min-width:0 son obligatorios: sin eso el riel horizontal de
+     chips fija el ancho mínimo de la columna y arrastra al panel fuera de pantalla. */
+  .dial { grid-template-columns: minmax(0, 1fr); }
+  .dial__ring { aspect-ratio: auto; min-width: 0; }
   .dial__orbit, .dial__core { display: none; }
   .dial__items {
     position: static; display: flex; gap: var(--s2);
-    overflow-x: auto; padding-bottom: var(--s3);
+    min-width: 0; overflow-x: auto;
+    padding-bottom: var(--s3);
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    /* el degradado del borde avisa que el riel sigue */
+    mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
   }
   .dial__items::-webkit-scrollbar { height: 2px; }
   .dial__items::-webkit-scrollbar-thumb { background: var(--line); }
   .dial__item { position: static; transform: none; scroll-snap-align: start; flex: none; }
-  .dial__panel { min-height: 0; }
+  .dial__panel { min-width: 0; min-height: 0; }
+  .panel__claim { text-wrap: pretty; }
 }
 
 /* ══════════ 02 · LABORATORIO ══════════ */
@@ -271,7 +277,7 @@
   background: var(--ink-2); overflow: hidden;
 }
 .lab__canvas-head {
-  display: flex; justify-content: space-between;
+  display: flex; justify-content: space-between; gap: var(--s4);
   padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line);
 }
 .lab__stamp { color: var(--acid); }
@@ -300,6 +306,36 @@
 .arch .node-in { animation: nodeIn .45s var(--ease-out) both; }
 @keyframes nodeIn { from { opacity: 0; transform: translateY(6px); } }
 
+/* ── arquitectura apilada (pantalla angosta) ──────────────── */
+
+.flow { display: none; padding: var(--s5) var(--s4); }
+.flow__layer + .flow__arrow { margin: var(--s3) 0; }
+.flow__label {
+  font-family: var(--mono); font-size: .5625rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: var(--s3);
+}
+.flow__items { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.flow__item {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--ink-3); padding: var(--s2) var(--s3);
+  font-family: var(--mono); font-size: .6875rem; color: var(--bone);
+}
+.flow__item--core {
+  border-color: var(--acid); background: rgba(198, 242, 78, .07);
+  display: flex; align-items: baseline; gap: var(--s2);
+}
+.flow__item--core i {
+  font-style: normal; font-size: .5625rem; color: var(--acid-dim);
+}
+.flow__arrow {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2px; color: var(--acid-dim); font-size: .6875rem;
+}
+.flow__arrow::before {
+  content: ''; width: 1px; height: 18px;
+  background: linear-gradient(var(--line), var(--acid-dim));
+}
+
 .lab__readout { display: grid; gap: var(--s4); }
 .readout { border-top: 1px solid var(--line); padding-top: var(--s3); }
 .readout__label { font-family: var(--mono); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -323,9 +359,14 @@
   .lab__readout { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  .lab__grid { grid-template-columns: 1fr; }
+  .lab__grid { grid-template-columns: minmax(0, 1fr); }
   .lab__readout { grid-template-columns: repeat(2, 1fr); }
   .readout--wide { grid-column: 1 / -1; }
+  .readout__value { font-size: 2rem; }
+  /* a este ancho el SVG renderiza texto de 4px: se cambia por la versión apilada */
+  .arch { display: none; }
+  .flow { display: block; }
+  .lab__file { display: none; }   /* ya no se muestra un .svg, y liberaba espacio al sello */
 }
 
 /* ══════════ 03 · PROCESO ══════════ */
@@ -525,5 +566,28 @@
 .form__status.is-error { color: var(--signal); }
 
 @media (max-width: 900px) {
-  .contacto__grid, .form { grid-template-columns: 1fr; }
+  .contacto__grid, .form { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ── ajustes finos de pantalla chica ──────────────────────── */
+
+@media (max-width: 720px) {
+  /* 9px de mono es legible en un monitor, no en un teléfono */
+  .readout__label,
+  .panel__metric span,
+  .flow__label { font-size: .625rem; }
+  .section__title { font-size: clamp(2rem, 8.5vw, 2.75rem); }
+  .panel__claim { font-size: clamp(1.5rem, 6.5vw, 2rem); }
+  .panel__metrics { gap: var(--s5); }
+  .stage__title { font-size: 1.75rem; }
+  .console__log { padding: var(--s4) var(--s3); }
+  .console__suggestions { padding: 0 var(--s3) var(--s3); }
+  .console__form { padding: var(--s3); }
+}
+
+@media (pointer: coarse) {
+  .dial__item { padding: var(--s3) var(--s4); min-height: 44px; }
+  .chip { padding: var(--s4) var(--s4) var(--s4) var(--s6); }
+  .chip::before { top: 1.45em; }
+  .suggestion { padding: var(--s2) var(--s3); min-height: 38px; }
 }

@@ -213,7 +213,13 @@
   ISL.initHero = function () {
     const canvas = ISL.$('#hero-canvas');
     if (!canvas) return;
-    const field = new ParticleField(canvas, ISL.$('#hero-hint'));
+
+    const hint = ISL.$('#hero-hint');
+    if (hint && window.matchMedia('(pointer: coarse)').matches) {
+      hint.textContent = 'Tocá la materia';
+    }
+
+    const field = new ParticleField(canvas, hint);
     field.start();
     ISL.heroField = field;
   };

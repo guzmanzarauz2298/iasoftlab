@@ -15,9 +15,20 @@
 
   const byId = (id) => ISL.capabilities.find((c) => c.id === id);
 
+  /* Fuentes y salidas que se desprenden de las capacidades activas.
+     Lo usan los dos renderers: el SVG y la versión apilada de mobile. */
+  function groups(caps) {
+    const uniq = (arr) => Array.from(new Set(arr));
+    return {
+      sources: uniq(caps.flatMap((c) => c.inputs)).slice(0, 5),
+      outputs: uniq(caps.flatMap((c) => c.outputs)).slice(0, 5)
+    };
+  }
+
   function Compiler() {
     this.chipsHost = ISL.$('#lab-chips');
     this.arch = ISL.$('#lab-arch');
+    this.flow = ISL.$('#lab-flow');
     this.empty = ISL.$('#lab-empty');
     this.stamp = ISL.$('#lab-stamp');
     this.meter = ISL.$('#lab-meter');
@@ -113,9 +124,8 @@
     Array.from(this.arch.querySelectorAll(':scope > *:not(title)')).forEach((n) => n.remove());
     if (!caps.length) return;
 
-    const uniq = (arr) => Array.from(new Set(arr));
-    const sources = uniq(caps.flatMap((c) => c.inputs)).slice(0, 5);
-    const outputs = uniq(caps.flatMap((c) => c.outputs)).slice(0, 5);
+    const sources = groups(caps).sources;
+    const outputs = groups(caps).outputs;
 
     const columns = [
       { key: 'src',  x: 96,  items: sources, label: 'Fuentes' },
@@ -184,6 +194,35 @@
     }
   };
 
+  /* ── arquitectura apilada, para pantallas angostas ─────── */
+  Compiler.prototype.drawFlow = function (caps) {
+    if (!this.flow) return;
+    this.flow.replaceChildren();
+    if (!caps.length) return;
+
+    const { sources, outputs } = groups(caps);
+
+    const layer = (label, items, isCore) => el('div', { class: 'flow__layer' }, [
+      el('p', { class: 'flow__label', text: label }),
+      el('div', { class: 'flow__items' }, items.map((text, i) => {
+        const item = el('span', { class: 'flow__item' + (isCore ? ' flow__item--core' : '') });
+        if (isCore) item.appendChild(el('i', { text: String(i + 1).padStart(2, '0') }));
+        item.appendChild(document.createTextNode(text));
+        return item;
+      }))
+    ]);
+
+    const arrow = () => el('div', { class: 'flow__arrow', text: '▼' });
+
+    this.flow.append(
+      layer('Fuentes', sources),
+      arrow(),
+      layer('Núcleo IA', caps.map((c) => c.short), true),
+      arrow(),
+      layer('Salidas', outputs)
+    );
+  };
+
   /* ── contadores ────────────────────────────────────────── */
   Compiler.prototype.animateCounts = function (target) {
     if (this._raf) cancelAnimationFrame(this._raf);
@@ -214,7 +253,9 @@
 
     const est = this.estimate(caps);
     this.animateCounts(est);
+    // se dibujan los dos; el CSS decide cuál se ve según el ancho
     this.drawArch(caps);
+    this.drawFlow(caps);
 
     const n = caps.length;
     this.counterEl.textContent = n === 0 ? '0 seleccionadas' : n + (n === 1 ? ' seleccionada' : ' seleccionadas');

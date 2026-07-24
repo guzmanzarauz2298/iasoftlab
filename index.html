@@ -120,8 +120,8 @@
       <p class="section__num">01</p>
       <h2 class="section__title">Un rubro no es una plantilla</h2>
       <p class="section__desc">
-        Cada industria tiene su propio cuello de botella. Girá el disco: el laboratorio se
-        reconfigura entero según lo que elijas — incluido el resto de esta página.
+        Cada industria tiene su propio cuello de botella. Elegí la tuya: el laboratorio se
+        reconfigura entero según lo que marques — incluido el resto de esta página.
       </p>
     </div>
 
@@ -187,12 +187,16 @@
 
       <div class="lab__canvas">
         <div class="lab__canvas-head">
-          <span class="mono">arquitectura.svg</span>
+          <span class="mono lab__file">arquitectura.svg</span>
           <span class="mono lab__stamp" id="lab-stamp">en espera</span>
         </div>
         <svg id="lab-arch" class="arch" viewBox="0 0 720 460" role="img" aria-labelledby="arch-title">
           <title id="arch-title">Diagrama de arquitectura generado según las capacidades seleccionadas</title>
         </svg>
+
+        <!-- Misma arquitectura, apilada: en pantalla angosta el SVG queda ilegible -->
+        <div class="flow" id="lab-flow"></div>
+
         <p class="lab__empty" id="lab-empty">
           Ninguna capacidad activa.<br><span class="mono">Elegí al menos una para compilar el diagrama.</span>
         </p>
