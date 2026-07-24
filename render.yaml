@@ -1,0 +1,18 @@
+# Blueprint de Render — sitio estático, sin build.
+# Render sirve la carpeta tal cual: no hay bundler ni dependencias que instalar.
+services:
+  - type: web
+    name: iasoftlab
+    runtime: static
+    staticPublishPath: .
+    buildCommand: "echo 'sitio estatico: nada que compilar'"
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=3600

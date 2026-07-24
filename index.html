@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IASOFTLAB — Laboratorio de software con inteligencia artificial</title>
+<meta name="description" content="Diseñamos, entrenamos e integramos software con IA para salud, retail, logística, finanzas, agro y más. Del diagnóstico al sistema en producción.">
+<meta name="theme-color" content="#08090B">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="IASOFTLAB — Software con IA para cualquier rubro">
+<meta property="og:description" content="Convertimos procesos en sistemas que piensan. Configurá tu solución en vivo.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2308090B'/><rect x='6' y='6' width='6' height='20' fill='%23C6F24E'/><rect x='16' y='6' width='10' height='6' fill='%23ECE7DE'/><rect x='16' y='20' width='10' height='6' fill='%23ECE7DE'/></svg>">
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- Boot / preloader -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__inner">
+    <div class="boot__mark" aria-hidden="true">IA<span>/</span>SL</div>
+    <p class="boot__log" id="boot-log">Inicializando laboratorio…</p>
+    <div class="boot__bar"><i id="boot-bar"></i></div>
+  </div>
+</div>
+
+<!-- Cursor reactivo (solo punteros finos) -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__ring"></div>
+  <div class="cursor__dot"></div>
+  <div class="cursor__label"></div>
+</div>
+
+<div class="scroll-rail" aria-hidden="true"><i id="scroll-rail"></i></div>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#inicio">
+    <span class="nav__glyph" aria-hidden="true"></span>
+    <span class="nav__name">IASOFTLAB</span>
+  </a>
+
+  <nav class="nav__links" aria-label="Secciones del sitio">
+    <a href="#rubros" data-spy="rubros"><span class="nav__idx">01</span> Rubros</a>
+    <a href="#laboratorio" data-spy="laboratorio"><span class="nav__idx">02</span> Laboratorio</a>
+    <a href="#proceso" data-spy="proceso"><span class="nav__idx">03</span> Proceso</a>
+    <a href="#demo" data-spy="demo"><span class="nav__idx">04</span> Demo</a>
+  </nav>
+
+  <a class="btn btn--sm btn--solid nav__cta" href="#contacto">Agendar diagnóstico</a>
+
+  <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-drawer">
+    <span class="sr-only">Abrir menú</span>
+    <span class="nav__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+</header>
+
+<div class="drawer" id="nav-drawer" hidden>
+  <a href="#rubros">01 &nbsp;Rubros</a>
+  <a href="#laboratorio">02 &nbsp;Laboratorio</a>
+  <a href="#proceso">03 &nbsp;Proceso</a>
+  <a href="#demo">04 &nbsp;Demo</a>
+  <a href="#contacto">05 &nbsp;Contacto</a>
+</div>
+
+<main id="contenido">
+
+  <!-- ══════════ 00 · HERO ══════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero__grid">
+
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> Laboratorio de software con IA · Montevideo → LATAM</p>
+
+        <h1 class="hero__title">
+          Convertimos procesos<br>
+          en <em>sistemas que piensan</em>.
+        </h1>
+
+        <p class="hero__lead">
+          No vendemos “una IA”. Diseñamos el sistema completo: el modelo, el dato que lo
+          alimenta, la interfaz que tu equipo usa todos los días y la integración con lo que
+          ya tenés funcionando.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#laboratorio" data-cursor="Construir">Configurar mi solución</a>
+          <a class="btn btn--ghost" href="#rubros" data-cursor="Explorar">Ver por rubro</a>
+        </div>
+
+        <dl class="hero__facts">
+          <div><dt>Rubros con solución activa</dt><dd>10</dd></div>
+          <div><dt>Del kickoff al prototipo</dt><dd>3 <small>semanas</small></dd></div>
+          <div><dt>Integraciones sobre stack existente</dt><dd>100<small>%</small></dd></div>
+        </dl>
+      </div>
+
+      <div class="hero__stage">
+        <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+        <p class="hero__stage-hint" id="hero-hint">Mové el cursor sobre la materia</p>
+      </div>
+
+    </div>
+
+    <div class="hero__ticker" aria-hidden="true">
+      <div class="ticker__track" id="ticker-track"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 01 · RUBROS (dial orbital) ══════════ -->
+  <section class="section rubros" id="rubros">
+    <div class="section__head">
+      <p class="section__num">01</p>
+      <h2 class="section__title">Un rubro no es una plantilla</h2>
+      <p class="section__desc">
+        Cada industria tiene su propio cuello de botella. Girá el disco: el laboratorio se
+        reconfigura entero según lo que elijas — incluido el resto de esta página.
+      </p>
+    </div>
+
+    <div class="dial">
+      <div class="dial__ring" id="dial-ring">
+        <div class="dial__orbit" aria-hidden="true">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="none">
+            <circle cx="200" cy="200" r="196" />
+            <circle cx="200" cy="200" r="150" class="dashed" />
+          </svg>
+        </div>
+
+        <div class="dial__items" id="dial-items" role="tablist" aria-label="Rubros" aria-orientation="horizontal">
+          <!-- botones inyectados por industry-dial.js -->
+        </div>
+
+        <div class="dial__core" aria-hidden="true">
+          <span class="dial__core-code" id="dial-core-code">—</span>
+          <span class="dial__core-label">rubro activo</span>
+        </div>
+      </div>
+
+      <div class="dial__panel" id="dial-panel">
+        <!-- panel inyectado por industry-dial.js -->
+      </div>
+    </div>
+
+    <div class="dial__nav">
+      <button class="stepper" data-dial="prev" aria-label="Rubro anterior">←</button>
+      <span class="stepper__count" id="dial-count">01 / 10</span>
+      <button class="stepper" data-dial="next" aria-label="Rubro siguiente">→</button>
+    </div>
+  </section>
+
+  <!-- ══════════ 02 · LABORATORIO (compilador) ══════════ -->
+  <section class="section lab" id="laboratorio">
+    <div class="section__head">
+      <p class="section__num">02</p>
+      <h2 class="section__title">Compilá tu sistema</h2>
+      <p class="section__desc">
+        Elegí capacidades. La arquitectura, el cronograma y el impacto estimado se recalculan
+        en vivo. Lo que armes acá viaja al formulario de contacto.
+      </p>
+    </div>
+
+    <div class="lab__grid">
+
+      <div class="lab__picker">
+        <p class="lab__legend">
+          <span class="mono">Capacidades</span>
+          <span class="lab__hint" id="lab-selected-count">0 seleccionadas</span>
+        </p>
+        <div class="chips" id="lab-chips" role="group" aria-label="Capacidades de IA disponibles">
+          <!-- chips inyectados -->
+        </div>
+
+        <div class="lab__presets">
+          <span class="mono">Presets:</span>
+          <button class="linkish" data-preset="industry" id="lab-preset-industry">Recomendado para el rubro</button>
+          <button class="linkish" data-preset="clear">Vaciar</button>
+        </div>
+      </div>
+
+      <div class="lab__canvas">
+        <div class="lab__canvas-head">
+          <span class="mono">arquitectura.svg</span>
+          <span class="mono lab__stamp" id="lab-stamp">en espera</span>
+        </div>
+        <svg id="lab-arch" class="arch" viewBox="0 0 720 460" role="img" aria-labelledby="arch-title">
+          <title id="arch-title">Diagrama de arquitectura generado según las capacidades seleccionadas</title>
+        </svg>
+        <p class="lab__empty" id="lab-empty">
+          Ninguna capacidad activa.<br><span class="mono">Elegí al menos una para compilar el diagrama.</span>
+        </p>
+      </div>
+
+      <p class="sr-only" id="lab-live" role="status" aria-live="polite"></p>
+
+      <div class="lab__readout" id="lab-readout">
+        <div class="readout">
+          <p class="readout__label">Prototipo funcionando</p>
+          <p class="readout__value"><span data-count="weeks">0</span> <small>semanas</small></p>
+        </div>
+        <div class="readout">
+          <p class="readout__label">Ahorro operativo estimado</p>
+          <p class="readout__value"><span data-count="impact">0</span><small>%</small></p>
+        </div>
+        <div class="readout readout--wide">
+          <p class="readout__label">Complejidad de integración</p>
+          <div class="meter" role="img" aria-label="Nivel de complejidad de integración">
+            <i id="lab-meter"></i>
+          </div>
+          <p class="readout__note mono" id="lab-note">Sin capacidades seleccionadas.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ 03 · PROCESO (riel horizontal) ══════════ -->
+  <section class="proceso" id="proceso">
+    <div class="proceso__sticky">
+      <div class="section__head section__head--inline">
+        <p class="section__num">03</p>
+        <h2 class="section__title">Cómo se construye</h2>
+      </div>
+
+      <div class="rail" id="rail">
+        <ol class="rail__track" id="rail-track">
+          <li class="stage">
+            <p class="stage__num">01</p>
+            <h3 class="stage__title">Diagnóstico</h3>
+            <p class="stage__body">Dos semanas dentro de tu operación. Medimos tiempos reales, mapeamos dónde se pierde plata y descartamos lo que no necesita IA.</p>
+            <p class="stage__out mono">→ Informe de oportunidades + caso base medible</p>
+          </li>
+          <li class="stage">
+            <p class="stage__num">02</p>
+            <h3 class="stage__title">Prototipo</h3>
+            <p class="stage__body">Un sistema chico pero real, con tus datos, en manos de tres usuarios. Si no mueve el número acordado, se corta acá.</p>
+            <p class="stage__out mono">→ Demo navegable + métrica contra el caso base</p>
+          </li>
+          <li class="stage">
+            <p class="stage__num">03</p>
+            <h3 class="stage__title">Entrenamiento</h3>
+            <p class="stage__body">Ajuste fino sobre tu dominio: vocabulario, excepciones, casos borde. Evaluación con un set que vos validás, no uno que elegimos nosotros.</p>
+            <p class="stage__out mono">→ Modelo versionado + tablero de evaluación</p>
+          </li>
+          <li class="stage">
+            <p class="stage__num">04</p>
+            <h3 class="stage__title">Integración</h3>
+            <p class="stage__body">Entra donde tu equipo ya trabaja: ERP, CRM, WhatsApp, el sistema de gestión de siempre. Nadie aprende una herramienta nueva si se puede evitar.</p>
+            <p class="stage__out mono">→ Producción con rollback y trazabilidad</p>
+          </li>
+          <li class="stage">
+            <p class="stage__num">05</p>
+            <h3 class="stage__title">Escala</h3>
+            <p class="stage__body">Monitoreo de deriva, reentrenamiento programado y transferencia real: documentación y capacitación para que puedas seguir sin nosotros.</p>
+            <p class="stage__out mono">→ Operación autónoma + soporte acordado</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="rail__progress" aria-hidden="true"><i id="rail-progress"></i></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 04 · DEMO ══════════ -->
+  <section class="section demo" id="demo">
+    <div class="section__head">
+      <p class="section__num">04</p>
+      <h2 class="section__title">Probalo ahora mismo</h2>
+      <p class="section__desc">
+        Un agente de demostración, ya contextualizado con el rubro que elegiste arriba.
+        Corre entero en tu navegador: no sale un solo dato de acá.
+      </p>
+    </div>
+
+    <div class="console">
+      <div class="console__bar">
+        <span class="mono">agente · <b id="demo-industry">—</b></span>
+        <span class="mono console__state" id="demo-state">en línea</span>
+      </div>
+
+      <div class="console__log" id="demo-log" role="log" aria-live="polite" aria-label="Conversación con el agente de demostración"></div>
+
+      <div class="console__suggestions" id="demo-suggestions" aria-label="Preguntas sugeridas"></div>
+
+      <form class="console__form" id="demo-form">
+        <label class="sr-only" for="demo-input">Escribí tu consulta</label>
+        <span class="console__prompt mono" aria-hidden="true">›</span>
+        <input id="demo-input" name="q" type="text" autocomplete="off" placeholder="Preguntá algo sobre tu operación…">
+        <button class="btn btn--solid btn--sm" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════════ IMPACTO ══════════ -->
+  <section class="impacto" aria-label="Cifras del laboratorio">
+    <div class="impacto__grid">
+      <div class="figure">
+        <p class="figure__value"><span data-odometer="34">0</span><small>%</small></p>
+        <p class="figure__label">menos tiempo en tareas administrativas, promedio de los sistemas en producción</p>
+      </div>
+      <div class="figure">
+        <p class="figure__value"><span data-odometer="12">0</span></p>
+        <p class="figure__label">sistemas con IA operando hoy en empresas de la región</p>
+      </div>
+      <div class="figure">
+        <p class="figure__value"><span data-odometer="3">0</span> <small>sem</small></p>
+        <p class="figure__label">del primer llamado a un prototipo que tu equipo puede tocar</p>
+      </div>
+      <div class="figure">
+        <p class="figure__value"><span data-odometer="0">0</span></p>
+        <p class="figure__label">proyectos entregados sin documentación ni traspaso técnico</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 05 · CONTACTO ══════════ -->
+  <section class="section contacto" id="contacto">
+    <div class="contacto__grid">
+
+      <div class="contacto__aside">
+        <p class="section__num">05</p>
+        <h2 class="section__title">Empecemos por el diagnóstico</h2>
+        <p class="section__desc">
+          Cuarenta y cinco minutos, sin costo. Salís con un mapa de dónde la IA te conviene
+          y —más importante— dónde no.
+        </p>
+
+        <ul class="contacto__list">
+          <li><span class="mono">01</span> Revisamos tu operación real, no un caso genérico</li>
+          <li><span class="mono">02</span> Te decimos si el proyecto no cierra</li>
+          <li><span class="mono">03</span> Si cierra, salís con alcance y plan de trabajo</li>
+        </ul>
+
+        <p class="contacto__direct mono">
+          hola@iasoftlab.com<br>
+          Montevideo, Uruguay
+        </p>
+      </div>
+
+      <form class="form" id="contact-form" novalidate>
+        <div class="field">
+          <label for="f-nombre">Nombre y apellido</label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+          <p class="field__error" id="e-nombre" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email de trabajo</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+          <p class="field__error" id="e-email" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="f-empresa">Empresa</label>
+          <input id="f-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="e-empresa">
+          <p class="field__error" id="e-empresa" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="f-rubro">Rubro</label>
+          <select id="f-rubro" name="rubro"></select>
+        </div>
+
+        <div class="field field--full">
+          <label for="f-mensaje">Qué querés resolver</label>
+          <textarea id="f-mensaje" name="mensaje" rows="5" required aria-describedby="e-mensaje"></textarea>
+          <p class="field__error" id="e-mensaje" hidden></p>
+          <p class="field__help mono" id="f-mensaje-help">Se completa solo con lo que configuraste en el laboratorio.</p>
+        </div>
+
+        <div class="form__foot">
+          <button class="btn btn--solid" type="submit">Enviar solicitud</button>
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__row">
+    <span class="mono">IASOFTLAB © 2026</span>
+    <span class="mono">Software con IA · diseño, entrenamiento e integración</span>
+    <a class="mono" href="#inicio">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/hero-particles.js"></script>
+<script src="assets/js/industry-dial.js"></script>
+<script src="assets/js/solution-compiler.js"></script>
+<script src="assets/js/pipeline.js"></script>
+<script src="assets/js/agent-demo.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
