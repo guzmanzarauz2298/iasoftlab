@@ -52,6 +52,7 @@
     <a href="#laboratorio" data-spy="laboratorio"><span class="nav__idx">02</span> Laboratorio</a>
     <a href="#proceso" data-spy="proceso"><span class="nav__idx">03</span> Proceso</a>
     <a href="#demo" data-spy="demo"><span class="nav__idx">04</span> Demo</a>
+    <a href="#nosotros" data-spy="nosotros"><span class="nav__idx">05</span> Nosotros</a>
   </nav>
 
   <a class="btn btn--sm btn--solid nav__cta" href="#contacto">Agendar diagnóstico</a>
@@ -67,7 +68,8 @@
   <a href="#laboratorio">02 &nbsp;Laboratorio</a>
   <a href="#proceso">03 &nbsp;Proceso</a>
   <a href="#demo">04 &nbsp;Demo</a>
-  <a href="#contacto">05 &nbsp;Contacto</a>
+  <a href="#nosotros">05 &nbsp;Nosotros</a>
+  <a href="#contacto">06 &nbsp;Contacto</a>
 </div>
 
 <main id="contenido">
@@ -324,12 +326,194 @@
     </div>
   </section>
 
-  <!-- ══════════ 05 · CONTACTO ══════════ -->
+  <!-- ══════════ 05 · NOSOTROS ══════════ -->
+  <section class="section nosotros" id="nosotros">
+
+    <!-- filtro duotono (serigrafía tinta→hueso) aplicado a las fotos -->
+    <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <filter id="isl-duo" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                              0.2126 0.7152 0.0722 0 0
+                                              0.2126 0.7152 0.0722 0 0
+                                              0 0 0 1 0"/>
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0.031 0.925"/>
+          <feFuncG type="table" tableValues="0.035 0.906"/>
+          <feFuncB type="table" tableValues="0.043 0.871"/>
+        </feComponentTransfer>
+      </filter>
+    </svg>
+
+    <div class="section__head">
+      <p class="section__num">05</p>
+      <h2 class="section__title">Dos oficios, un mismo producto</h2>
+      <p class="section__desc">
+        IASOFTLAB nace del cruce de dos mundos que rara vez se sientan en la misma mesa:
+        la clínica y la ingeniería. Uno sabe qué necesita de verdad un centro de salud;
+        el otro sabe construirlo. Por eso el software que hacemos entiende el problema
+        antes de escribir la primera línea de código.
+      </p>
+    </div>
+
+    <div class="founders">
+
+      <!-- ── Martin Puentes · CEO ── -->
+      <article class="founder">
+        <figure class="portrait">
+          <img src="assets/img/martin.jpeg"
+               alt="Martin Puentes, CEO y co-fundador de IASOFTLAB"
+               loading="lazy" width="800" height="1000"
+               onerror="this.onerror=null;this.src='assets/img/placeholder-mp.svg';this.classList.add('is-placeholder')">
+          <figcaption class="portrait__cap"><span class="mono">CEO · Co-fundador</span></figcaption>
+          <span class="portrait__corner" aria-hidden="true"></span>
+        </figure>
+
+        <div class="founder__body">
+          <p class="founder__eyebrow mono">01 — Dirección clínica y estrategia</p>
+          <h3 class="founder__name">Martin Puentes</h3>
+
+          <p class="founder__lead">
+            Psicólogo especializado en drogodependencias. Aporta la mirada clínica:
+            qué necesita realmente un centro de salud, dónde duele el proceso y qué
+            tiene que resolver la tecnología para que un tratamiento funcione.
+          </p>
+
+          <p class="founder__bio">
+            Licenciado en Psicología y especialista en drogodependencias, se desempeña como
+            Director Clínico en un centro de rehabilitación y tratamiento para personas con
+            trastorno por consumo de sustancias. Su formación en gestión de servicios de salud
+            y en tratamiento de sustancias psicoactivas —OEA·CICAD, OMS— le permite pensar la
+            operación de un centro tanto desde el paciente como desde la institución. Es miembro
+            de la International Society of Substance Use Professionals (ISSUP).
+          </p>
+
+          <div class="creds">
+            <div class="creds__group">
+              <p class="creds__label mono">Formación</p>
+              <ul>
+                <li>Doctorando en Psicología</li>
+                <li>Magíster en Psicología Forense</li>
+                <li>Licenciado en Psicología</li>
+                <li>Posgrado — Especialista en Drogodependencias</li>
+              </ul>
+            </div>
+            <div class="creds__group">
+              <p class="creds__label mono">Diplomas y certificaciones</p>
+              <ul>
+                <li>Gestión de Servicios de Salud</li>
+                <li>Gestión de Proyectos</li>
+                <li>Terapia Cognitivo Conductual</li>
+                <li>Primeros Auxilios Psicológicos</li>
+                <li>Operador psicosocial especialista en adicciones</li>
+                <li>Currículum Universal de Tratamiento de Adicción — OEA · CICAD · UNAM</li>
+              </ul>
+            </div>
+            <div class="creds__group">
+              <p class="creds__label mono">Áreas de trabajo</p>
+              <div class="creds__tags">
+                <span class="tag">Adicciones · abordaje individual y familiar</span>
+                <span class="tag">Ansiedad y estrés</span>
+                <span class="tag">Estrés postraumático</span>
+                <span class="tag">Trastornos de personalidad</span>
+                <span class="tag">Consultoría y supervisión clínica</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── CTO · Producto e ingeniería ── -->
+      <article class="founder founder--rev">
+        <figure class="portrait">
+          <img src="assets/img/cto.jpeg"
+               alt="Guzmán Zarauz, CTO y co-fundador de IASOFTLAB"
+               loading="lazy" width="800" height="1000"
+               onerror="this.onerror=null;this.src='assets/img/placeholder-cto.svg';this.classList.add('is-placeholder')">
+          <figcaption class="portrait__cap"><span class="mono">CTO · Co-fundador</span></figcaption>
+          <span class="portrait__corner" aria-hidden="true"></span>
+        </figure>
+
+        <div class="founder__body">
+          <p class="founder__eyebrow mono">02 — Producto e ingeniería</p>
+          <h3 class="founder__name">Guzmán Zarauz</h3>
+
+          <p class="founder__lead">
+            Product Manager y desarrollador full stack. Trabaja donde se cruzan el software,
+            la inteligencia artificial y la salud digital: diseña y construye productos que
+            ordenan procesos clínicos, mejoran la toma de decisiones y vuelven más eficiente
+            la operación de centros de salud y rehabilitación.
+          </p>
+
+          <p class="founder__bio">
+            Ingeniero en IA por IBM, complementa esa base con formación certificada en analítica
+            avanzada, gestión de producto e informática médica. No se queda en la especificación:
+            releva, define el alcance, prioriza por impacto —no por backlog—, escribe el código,
+            mide sobre datos y traduce entre lo clínico, lo técnico y lo comercial.
+          </p>
+
+          <div class="creds">
+            <div class="creds__group">
+              <p class="creds__label mono">Cómo trabaja</p>
+              <ul>
+                <li>Del problema al producto: releva, define alcance y prioriza por impacto</li>
+                <li>Implementación real: escribe el código, no solo la especificación</li>
+                <li>Datos primero: mide, analiza y ajusta sobre evidencia</li>
+                <li>Equipos interdisciplinarios: traduce entre lo clínico, lo técnico y lo comercial</li>
+              </ul>
+            </div>
+            <div class="creds__group">
+              <p class="creds__label mono">Stack</p>
+              <div class="creds__tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">C# (.NET)</span>
+                <span class="tag">Python</span>
+                <span class="tag">SQL Server</span>
+                <span class="tag">HTML · CSS</span>
+                <span class="tag">Machine learning aplicado</span>
+                <span class="tag">Integración de IA</span>
+                <span class="tag">Scrum · Design Thinking</span>
+              </div>
+            </div>
+            <div class="creds__group">
+              <p class="creds__label mono">Certificaciones destacadas</p>
+              <ul>
+                <li>Google Advanced Data Analytics · Google Data Analytics — Google</li>
+                <li>AI Engineering · AI Product Manager · Product Manager — IBM</li>
+                <li>AI Product Management — Duke University</li>
+                <li>Health Informatics — Johns Hopkins University</li>
+                <li>Medios digitales para resultados sanitarios — Yale University</li>
+                <li>IA y Ciencia de Datos para Negocios — Universidad de Palermo</li>
+              </ul>
+              <details class="creds__more">
+                <summary>Ver las 38 credenciales verificables</summary>
+                <ul>
+                  <li>Google AI Essentials · Google Prompting Essentials — Google</li>
+                  <li>Social Media Marketing — Meta</li>
+                  <li>Cybersecurity for Everyone — University of Maryland</li>
+                  <li>…y 20+ certificaciones adicionales en analítica, producto e IA</li>
+                </ul>
+              </details>
+            </div>
+            <div class="creds__group">
+              <p class="creds__label mono">Idiomas</p>
+              <div class="creds__tags">
+                <span class="tag">Español nativo</span>
+                <span class="tag">Inglés avanzado — Cambridge · Oxford</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══════════ 06 · CONTACTO ══════════ -->
   <section class="section contacto" id="contacto">
     <div class="contacto__grid">
 
       <div class="contacto__aside">
-        <p class="section__num">05</p>
+        <p class="section__num">06</p>
         <h2 class="section__title">Empecemos por el diagnóstico</h2>
         <p class="section__desc">
           Cuarenta y cinco minutos, sin costo. Salís con un mapa de dónde la IA te conviene
