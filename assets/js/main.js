@@ -13,6 +13,7 @@
     ISL.initDial();      // fija el rubro inicial en el store
     ISL.initCompiler();  // deriva capacidades del rubro
     ISL.initPipeline();
+    ISL.initVision();
     ISL.initAgent();
     ISL.initForm();      // lee rubro + capacidades ya resueltos
 
