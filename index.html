@@ -49,10 +49,11 @@
 
   <nav class="nav__links" aria-label="Secciones del sitio">
     <a href="#rubros" data-spy="rubros"><span class="nav__idx">01</span> Rubros</a>
-    <a href="#laboratorio" data-spy="laboratorio"><span class="nav__idx">02</span> Laboratorio</a>
-    <a href="#proceso" data-spy="proceso"><span class="nav__idx">03</span> Proceso</a>
-    <a href="#demo" data-spy="demo"><span class="nav__idx">04</span> Demo</a>
-    <a href="#nosotros" data-spy="nosotros"><span class="nav__idx">05</span> Nosotros</a>
+    <a href="#vision" data-spy="vision"><span class="nav__idx">02</span> Vision</a>
+    <a href="#laboratorio" data-spy="laboratorio"><span class="nav__idx">03</span> Laboratorio</a>
+    <a href="#proceso" data-spy="proceso"><span class="nav__idx">04</span> Proceso</a>
+    <a href="#demo" data-spy="demo"><span class="nav__idx">05</span> Demo</a>
+    <a href="#nosotros" data-spy="nosotros"><span class="nav__idx">06</span> Nosotros</a>
   </nav>
 
   <a class="btn btn--sm btn--solid nav__cta" href="#contacto">Agendar diagnóstico</a>
@@ -65,11 +66,12 @@
 
 <div class="drawer" id="nav-drawer" hidden>
   <a href="#rubros">01 &nbsp;Rubros</a>
-  <a href="#laboratorio">02 &nbsp;Laboratorio</a>
-  <a href="#proceso">03 &nbsp;Proceso</a>
-  <a href="#demo">04 &nbsp;Demo</a>
-  <a href="#nosotros">05 &nbsp;Nosotros</a>
-  <a href="#contacto">06 &nbsp;Contacto</a>
+  <a href="#vision">02 &nbsp;Vision</a>
+  <a href="#laboratorio">03 &nbsp;Laboratorio</a>
+  <a href="#proceso">04 &nbsp;Proceso</a>
+  <a href="#demo">05 &nbsp;Demo</a>
+  <a href="#nosotros">06 &nbsp;Nosotros</a>
+  <a href="#contacto">07 &nbsp;Contacto</a>
 </div>
 
 <main id="contenido">
@@ -158,10 +160,88 @@
     </div>
   </section>
 
-  <!-- ══════════ 02 · LABORATORIO (compilador) ══════════ -->
-  <section class="section lab" id="laboratorio">
+  <!-- ══════════ 02 · VISION (producto) ══════════ -->
+  <section class="section vision" id="vision">
     <div class="section__head">
       <p class="section__num">02</p>
+      <h2 class="section__title">Vision — cámaras que <em>entienden</em> lo que ven</h2>
+      <p class="section__desc">
+        Nuestro producto de visión por computadora convierte cualquier cámara en un sensor
+        que reconoce patrones y avisa a tiempo. Nació en geriatría —donde una caída o una
+        deambulación nocturna sin detectar se pagan caro— y hoy funciona en cualquier rubro.
+      </p>
+    </div>
+
+    <div class="vision__grid">
+
+      <!-- narrativa + cómo funciona -->
+      <div class="vision__aside">
+        <p class="vision__origin">
+          <span class="mono">Origen · Geriatría</span>
+          Probado 24/7 en residencias y centros de rehabilitación, mirando lo que ningún
+          equipo humano puede vigilar sin parpadear. Ese rigor viaja a cada rubro nuevo.
+        </p>
+
+        <ol class="vflow">
+          <li>
+            <span class="vflow__n mono">01</span>
+            <div><b>Cámara</b><span>Usás las que ya tenés (IP / CCTV) o las instalamos nosotros.</span></div>
+          </li>
+          <li>
+            <span class="vflow__n mono">02</span>
+            <div><b>Modelo de visión</b><span>Corre en el borde o en tu servidor. El video no sale de tu red.</span></div>
+          </li>
+          <li>
+            <span class="vflow__n mono">03</span>
+            <div><b>Patrón</b><span>Reconoce los eventos que definís con tu equipo, no una lista genérica.</span></div>
+          </li>
+          <li>
+            <span class="vflow__n mono">04</span>
+            <div><b>Alerta + acción</b><span>WhatsApp, tablero o integración con tu sistema, en segundos.</span></div>
+          </li>
+        </ol>
+
+        <p class="vision__privacy mono">
+          <span aria-hidden="true">◆</span> Privacidad primero: el video se procesa local; podés
+          guardar sólo los eventos, no las imágenes.
+        </p>
+
+        <a class="btn btn--solid" href="#contacto" data-cursor="Contactar">Quiero Vision en mi operación</a>
+      </div>
+
+      <!-- demo interactiva -->
+      <div class="vision__demo">
+        <div class="vcam__tabs" id="vision-tabs" role="tablist" aria-label="Rubro para la demostración de Vision"></div>
+
+        <figure class="vcam">
+          <div class="vcam__bar">
+            <span class="mono vcam__rec"><i aria-hidden="true"></i> REC</span>
+            <span class="mono vcam__scene" id="vcam-scene">—</span>
+            <span class="mono vcam__clock" id="vcam-clock">00:00:00</span>
+          </div>
+          <div class="vcam__frame">
+            <svg class="vcam__view" id="vcam-view" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"
+                 role="img" aria-describedby="vcam-caption"></svg>
+            <span class="vcam__scan" aria-hidden="true"></span>
+          </div>
+          <figcaption class="vcam__cap" id="vcam-caption">
+            Demostración: la IA marca patrones sobre una escena esquemática. No es una cámara real.
+          </figcaption>
+        </figure>
+
+        <div class="vcam__readout">
+          <p class="vcam__label mono">Patrones detectados · <span id="vcam-count">0</span></p>
+          <ul class="vpatterns" id="vision-patterns"></ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ 03 · LABORATORIO (compilador) ══════════ -->
+  <section class="section lab" id="laboratorio">
+    <div class="section__head">
+      <p class="section__num">03</p>
       <h2 class="section__title">Compilá tu sistema</h2>
       <p class="section__desc">
         Elegí capacidades. La arquitectura, el cronograma y el impacto estimado se recalculan
@@ -227,11 +307,11 @@
     </div>
   </section>
 
-  <!-- ══════════ 03 · PROCESO (riel horizontal) ══════════ -->
+  <!-- ══════════ 04 · PROCESO (riel horizontal) ══════════ -->
   <section class="proceso" id="proceso">
     <div class="proceso__sticky">
       <div class="section__head section__head--inline">
-        <p class="section__num">03</p>
+        <p class="section__num">04</p>
         <h2 class="section__title">Cómo se construye</h2>
       </div>
 
@@ -274,10 +354,10 @@
     </div>
   </section>
 
-  <!-- ══════════ 04 · DEMO ══════════ -->
+  <!-- ══════════ 05 · DEMO ══════════ -->
   <section class="section demo" id="demo">
     <div class="section__head">
-      <p class="section__num">04</p>
+      <p class="section__num">05</p>
       <h2 class="section__title">Probalo ahora mismo</h2>
       <p class="section__desc">
         Un agente de demostración, ya contextualizado con el rubro que elegiste arriba.
@@ -326,7 +406,7 @@
     </div>
   </section>
 
-  <!-- ══════════ 05 · NOSOTROS ══════════ -->
+  <!-- ══════════ 06 · NOSOTROS ══════════ -->
   <section class="section nosotros" id="nosotros">
 
     <!-- filtro duotono (serigrafía tinta→hueso) aplicado a las fotos -->
@@ -345,7 +425,7 @@
     </svg>
 
     <div class="section__head">
-      <p class="section__num">05</p>
+      <p class="section__num">06</p>
       <h2 class="section__title">Dos oficios, un mismo producto</h2>
       <p class="section__desc">
         IASOFTLAB nace del cruce de dos mundos que rara vez se sientan en la misma mesa:
@@ -508,12 +588,12 @@
     </div>
   </section>
 
-  <!-- ══════════ 06 · CONTACTO ══════════ -->
+  <!-- ══════════ 07 · CONTACTO ══════════ -->
   <section class="section contacto" id="contacto">
     <div class="contacto__grid">
 
       <div class="contacto__aside">
-        <p class="section__num">06</p>
+        <p class="section__num">07</p>
         <h2 class="section__title">Empecemos por el diagnóstico</h2>
         <p class="section__desc">
           Cuarenta y cinco minutos, sin costo. Salís con un mapa de dónde la IA te conviene
@@ -589,6 +669,7 @@
 <script src="assets/js/solution-compiler.js"></script>
 <script src="assets/js/pipeline.js"></script>
 <script src="assets/js/agent-demo.js"></script>
+<script src="assets/js/vision.js"></script>
 <script src="assets/js/site.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

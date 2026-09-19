@@ -116,7 +116,8 @@
   ISL.initReveals = function () {
     const targets = [
       '.section__head', '.dial', '.dial__nav', '.lab__picker', '.lab__canvas',
-      '.lab__readout', '.console', '.figure', '.founder', '.contacto__aside', '.form', '.hero__copy'
+      '.lab__readout', '.console', '.figure', '.founder', '.vision__aside', '.vision__demo',
+      '.contacto__aside', '.form', '.hero__copy'
     ];
     let i = 0;
     targets.forEach((sel) => {
