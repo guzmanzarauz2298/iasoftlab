@@ -14,6 +14,7 @@
     ISL.initCompiler();  // deriva capacidades del rubro
     ISL.initPipeline();
     ISL.initVision();
+    ISL.initCustom();
     ISL.initAgent();
     ISL.initForm();      // lee rubro + capacidades ya resueltos
 

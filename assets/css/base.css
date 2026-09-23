@@ -297,7 +297,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   letter-spacing: .22em; font-weight: 500;
 }
 
-.nav__links { display: flex; gap: var(--s5); }
+.nav__links { display: flex; gap: var(--s4); }
+/* con 7 secciones, el nav horizontal muestra sólo el nombre; el índice queda en el drawer */
+.nav__links .nav__idx { display: none; }
 .nav__links a {
   font-family: var(--mono); font-size: .6875rem;
   letter-spacing: .1em; text-transform: uppercase;
@@ -334,7 +336,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .drawer a:hover { color: var(--acid); }
 
-@media (max-width: 900px) {
+/* 7 secciones en el nav: pasa a menú hamburguesa cuando ya no entran cómodas */
+@media (max-width: 1024px) {
   .nav__links, .nav__cta { display: none; }
   .nav__toggle { display: grid; place-items: center; }
 }
