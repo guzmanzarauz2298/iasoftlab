@@ -665,7 +665,114 @@
   .vpat__sev { display: none; }
 }
 
-/* ══════════ 06 · NOSOTROS ══════════ */
+/* ══════════ 03 · A MEDIDA ══════════ */
+
+.custom__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+/* ── controles ── */
+.custom__controls { display: flex; flex-direction: column; gap: var(--s5); }
+.segctl { display: flex; flex-direction: column; gap: var(--s3); }
+.segctl__label { color: var(--muted); }
+.segctl__opts { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.seg {
+  background: transparent; border: 1px solid var(--line); border-radius: 100px;
+  padding: var(--s2) var(--s4); font-family: var(--mono); font-size: .6875rem;
+  letter-spacing: .04em; color: var(--bone-dim); cursor: pointer;
+  transition: color .25s var(--ease), border-color .25s var(--ease), background-color .25s var(--ease);
+}
+.seg:hover { color: var(--bone); border-color: var(--bone-dim); }
+.seg[aria-pressed='true'] { background: var(--acid); color: var(--ink); border-color: var(--acid); }
+
+.swatches { display: flex; gap: var(--s3); }
+.swatch {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--sw);
+  border: 0; cursor: pointer; transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.swatch:hover { transform: scale(1.12); }
+.swatch[aria-pressed='true'] { box-shadow: 0 0 0 2px var(--ink-2), 0 0 0 4px var(--sw); }
+
+.custom__note { color: var(--muted); text-transform: none; letter-spacing: .03em; line-height: 1.6; }
+.custom__cap { color: var(--muted); text-transform: none; letter-spacing: .04em; margin-top: var(--s3); }
+
+/* ── vista previa viva (mock) ── */
+.mock {
+  --mock-accent: var(--acid);
+  --m-gap: .55rem; --m-pad: .7rem; --m-card-h: 34px;
+  --m-radius: 10px; --m-shadow: 0 6px 18px rgba(0, 0, 0, .4); --m-weight: 600;
+  border: 1px solid var(--line); border-radius: var(--radius-lg);
+  background: var(--ink-2); overflow: hidden;
+}
+.mock[data-density='compacta'] { --m-gap: .32rem; --m-pad: .45rem; --m-card-h: 22px; }
+.mock[data-style='minimal'] { --m-radius: 2px; --m-shadow: none; --m-weight: 400; }
+
+.mock__bar {
+  display: flex; align-items: center; gap: var(--s3);
+  padding: .5rem .7rem; border-bottom: 1px solid var(--line);
+}
+.mock__dots { display: flex; gap: 4px; }
+.mock__dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-4); }
+.mock__title { font-size: .625rem; color: var(--muted); }
+
+.mock__body { display: grid; grid-template-columns: 92px 1fr; min-height: 320px; }
+.mock__side {
+  border-right: 1px solid var(--line); padding: var(--m-pad);
+  display: flex; flex-direction: column; gap: var(--m-gap); background: rgba(0, 0, 0, .18);
+}
+.mock__logo { height: 16px; width: 62%; border-radius: calc(var(--m-radius) / 2); background: var(--mock-accent); transition: border-radius .3s var(--ease), background-color .3s var(--ease); }
+.mock__nav { height: 10px; border-radius: calc(var(--m-radius) / 2); background: var(--ink-4); transition: border-radius .3s var(--ease); }
+.mock__nav.is-active { box-shadow: inset 2px 0 0 var(--mock-accent); background: var(--ink-3); }
+.mock__nav--short { width: 68%; }
+
+.mock__main { padding: var(--m-pad); overflow: hidden; }
+.mock__view { display: none; }
+.mock[data-layout='tablero'] .mock__view--tablero { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--m-gap); }
+.mock[data-layout='lista'] .mock__view--lista { display: flex; flex-direction: column; gap: var(--m-gap); }
+.mock[data-layout='calendario'] .mock__view--calendario { display: flex; flex-direction: column; gap: var(--m-gap); }
+.mock[data-layout='tarjetas'] .mock__view--tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--m-gap); align-content: start; }
+
+/* piezas comunes: heredan radio/sombra del estilo elegido */
+.mkcard, .mkrow, .mktile, .mkcal__cell {
+  transition: border-radius .3s var(--ease), box-shadow .3s var(--ease),
+              height .3s var(--ease), background-color .3s var(--ease);
+}
+
+/* tablero */
+.mkcol { display: flex; flex-direction: column; gap: var(--m-gap); background: rgba(236, 231, 222, .03); border-radius: var(--m-radius); padding: var(--m-pad); }
+.mkcol__h { font-family: var(--mono); font-size: .5rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.mkcard { height: var(--m-card-h); background: var(--ink-3); border: 1px solid var(--line); border-radius: var(--m-radius); box-shadow: var(--m-shadow); }
+.mkcard--tag { position: relative; }
+.mkcard--tag::before { content: ''; position: absolute; top: 6px; left: 6px; width: 22px; height: 6px; border-radius: 3px; background: var(--mock-accent); }
+
+/* lista */
+.mkrow { display: grid; grid-template-columns: 14px 1fr 34px; gap: var(--s3); align-items: center; height: var(--m-card-h); padding: 0 var(--m-pad); background: var(--ink-3); border: 1px solid var(--line); border-radius: var(--m-radius); box-shadow: var(--m-shadow); }
+.mkrow--head { background: transparent; border: 0; box-shadow: none; height: auto; padding: 0 var(--m-pad) 2px; }
+.mkrow--head span { height: 6px; border-radius: 3px; background: var(--ink-4); }
+.mkrow__pill { width: 12px; height: 12px; border-radius: 50%; background: var(--mock-accent); }
+.mkrow__bar { height: 8px; border-radius: 4px; background: var(--ink-4); }
+.mkrow__meta { height: 8px; border-radius: 4px; background: var(--ink-4); opacity: .55; }
+
+/* calendario */
+.mkcal__head { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: var(--m-gap); }
+.mkcal__head span { height: 6px; border-radius: 3px; background: var(--ink-4); }
+.mkcal__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--m-gap); }
+.mkcal__cell { aspect-ratio: 1; background: var(--ink-3); border: 1px solid var(--line); border-radius: var(--m-radius); box-shadow: var(--m-shadow); position: relative; }
+.mkcal__cell--today { border-color: var(--mock-accent); }
+.mkev { position: absolute; left: 4px; right: 4px; bottom: 4px; height: 5px; border-radius: 3px; background: var(--mock-accent); display: block; }
+
+/* tarjetas */
+.mktile { height: calc(var(--m-card-h) * 1.9); background: var(--ink-3); border: 1px solid var(--line); border-radius: var(--m-radius); box-shadow: var(--m-shadow); position: relative; overflow: hidden; }
+.mktile::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--mock-accent); }
+
+@media (max-width: 820px) {
+  .custom__grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ══════════ 07 · NOSOTROS ══════════ */
 
 .svg-defs { position: absolute; width: 0; height: 0; }
 
@@ -770,7 +877,7 @@
   .portrait { aspect-ratio: 3 / 2; max-width: 24rem; }
 }
 
-/* ══════════ 07 · CONTACTO ══════════ */
+/* ══════════ 08 · CONTACTO ══════════ */
 
 .contacto__grid {
   display: grid; grid-template-columns: 1fr 1.15fr;

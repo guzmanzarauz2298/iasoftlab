@@ -50,10 +50,11 @@
   <nav class="nav__links" aria-label="Secciones del sitio">
     <a href="#rubros" data-spy="rubros"><span class="nav__idx">01</span> Rubros</a>
     <a href="#vision" data-spy="vision"><span class="nav__idx">02</span> Vision</a>
-    <a href="#laboratorio" data-spy="laboratorio"><span class="nav__idx">03</span> Laboratorio</a>
-    <a href="#proceso" data-spy="proceso"><span class="nav__idx">04</span> Proceso</a>
-    <a href="#demo" data-spy="demo"><span class="nav__idx">05</span> Demo</a>
-    <a href="#nosotros" data-spy="nosotros"><span class="nav__idx">06</span> Nosotros</a>
+    <a href="#medida" data-spy="medida"><span class="nav__idx">03</span> A medida</a>
+    <a href="#laboratorio" data-spy="laboratorio"><span class="nav__idx">04</span> Laboratorio</a>
+    <a href="#proceso" data-spy="proceso"><span class="nav__idx">05</span> Proceso</a>
+    <a href="#demo" data-spy="demo"><span class="nav__idx">06</span> Demo</a>
+    <a href="#nosotros" data-spy="nosotros"><span class="nav__idx">07</span> Nosotros</a>
   </nav>
 
   <a class="btn btn--sm btn--solid nav__cta" href="#contacto">Agendar diagnóstico</a>
@@ -67,11 +68,12 @@
 <div class="drawer" id="nav-drawer" hidden>
   <a href="#rubros">01 &nbsp;Rubros</a>
   <a href="#vision">02 &nbsp;Vision</a>
-  <a href="#laboratorio">03 &nbsp;Laboratorio</a>
-  <a href="#proceso">04 &nbsp;Proceso</a>
-  <a href="#demo">05 &nbsp;Demo</a>
-  <a href="#nosotros">06 &nbsp;Nosotros</a>
-  <a href="#contacto">07 &nbsp;Contacto</a>
+  <a href="#medida">03 &nbsp;A medida</a>
+  <a href="#laboratorio">04 &nbsp;Laboratorio</a>
+  <a href="#proceso">05 &nbsp;Proceso</a>
+  <a href="#demo">06 &nbsp;Demo</a>
+  <a href="#nosotros">07 &nbsp;Nosotros</a>
+  <a href="#contacto">08 &nbsp;Contacto</a>
 </div>
 
 <main id="contenido">
@@ -238,10 +240,129 @@
     </div>
   </section>
 
-  <!-- ══════════ 03 · LABORATORIO (compilador) ══════════ -->
-  <section class="section lab" id="laboratorio">
+  <!-- ══════════ 03 · A MEDIDA (customizador) ══════════ -->
+  <section class="section custom" id="medida">
     <div class="section__head">
       <p class="section__num">03</p>
+      <h2 class="section__title">A tu medida — <em>tu forma</em> de trabajar, hecha software</h2>
+      <p class="section__desc">
+        No hay dos personas que se organicen igual. Diseñamos la interfaz, la arquitectura y
+        el estilo como vos los querés —no como vienen por defecto—, en cualquier rubro.
+        Tocá los controles: es el mismo sistema, a tu manera.
+      </p>
+    </div>
+
+    <div class="custom__grid">
+
+      <!-- controles -->
+      <div class="custom__controls">
+        <div class="segctl" role="group" aria-label="Organización">
+          <span class="segctl__label mono">Organización</span>
+          <div class="segctl__opts">
+            <button class="seg" type="button" data-control="layout" data-value="tablero" aria-pressed="true">Tablero</button>
+            <button class="seg" type="button" data-control="layout" data-value="lista" aria-pressed="false">Lista</button>
+            <button class="seg" type="button" data-control="layout" data-value="calendario" aria-pressed="false">Calendario</button>
+            <button class="seg" type="button" data-control="layout" data-value="tarjetas" aria-pressed="false">Tarjetas</button>
+          </div>
+        </div>
+
+        <div class="segctl" role="group" aria-label="Densidad">
+          <span class="segctl__label mono">Densidad</span>
+          <div class="segctl__opts">
+            <button class="seg" type="button" data-control="density" data-value="comoda" aria-pressed="true">Cómoda</button>
+            <button class="seg" type="button" data-control="density" data-value="compacta" aria-pressed="false">Compacta</button>
+          </div>
+        </div>
+
+        <div class="segctl" role="group" aria-label="Estilo">
+          <span class="segctl__label mono">Estilo</span>
+          <div class="segctl__opts">
+            <button class="seg" type="button" data-control="style" data-value="expresivo" aria-pressed="true">Expresivo</button>
+            <button class="seg" type="button" data-control="style" data-value="minimal" aria-pressed="false">Minimal</button>
+          </div>
+        </div>
+
+        <div class="segctl" role="group" aria-label="Acento">
+          <span class="segctl__label mono">Acento</span>
+          <div class="swatches">
+            <button class="swatch" type="button" data-control="accent" data-color="#c6f24e" style="--sw:#c6f24e" aria-pressed="true" aria-label="Lima"></button>
+            <button class="swatch" type="button" data-control="accent" data-color="#4ea3f2" style="--sw:#4ea3f2" aria-pressed="false" aria-label="Azul"></button>
+            <button class="swatch" type="button" data-control="accent" data-color="#ff5c35" style="--sw:#ff5c35" aria-pressed="false" aria-label="Coral"></button>
+            <button class="swatch" type="button" data-control="accent" data-color="#a78bfa" style="--sw:#a78bfa" aria-pressed="false" aria-label="Violeta"></button>
+            <button class="swatch" type="button" data-control="accent" data-color="#f5a623" style="--sw:#f5a623" aria-pressed="false" aria-label="Ámbar"></button>
+          </div>
+        </div>
+
+        <p class="custom__note mono">
+          Esto es una muestra. Lo real lo definimos con vos —campo por campo, flujo por flujo—
+          hasta que la herramienta se sienta tuya.
+        </p>
+        <a class="btn btn--solid" href="#contacto" data-cursor="Contactar">Quiero la mía a medida</a>
+      </div>
+
+      <!-- vista previa viva -->
+      <div class="custom__preview">
+        <div class="mock" id="mock" data-layout="tablero" data-density="comoda" data-style="expresivo"
+             style="--mock-accent:#c6f24e" role="img"
+             aria-label="Vista previa de una aplicación que se reorganiza y recolorea según las opciones elegidas">
+          <div class="mock__bar" aria-hidden="true">
+            <span class="mock__dots"><i></i><i></i><i></i></span>
+            <span class="mock__title mono">tu-app · como vos la imaginás</span>
+          </div>
+          <div class="mock__body" aria-hidden="true">
+            <aside class="mock__side">
+              <span class="mock__logo"></span>
+              <span class="mock__nav is-active"></span>
+              <span class="mock__nav"></span>
+              <span class="mock__nav"></span>
+              <span class="mock__nav"></span>
+              <span class="mock__nav mock__nav--short"></span>
+            </aside>
+            <main class="mock__main">
+
+              <div class="mock__view mock__view--tablero">
+                <div class="mkcol"><span class="mkcol__h">Pendiente</span><span class="mkcard"></span><span class="mkcard"></span></div>
+                <div class="mkcol"><span class="mkcol__h">En curso</span><span class="mkcard mkcard--tag"></span><span class="mkcard"></span><span class="mkcard"></span></div>
+                <div class="mkcol"><span class="mkcol__h">Listo</span><span class="mkcard"></span></div>
+              </div>
+
+              <div class="mock__view mock__view--lista">
+                <div class="mkrow mkrow--head"><span></span><span></span><span></span></div>
+                <div class="mkrow"><span class="mkrow__pill"></span><span class="mkrow__bar"></span><span class="mkrow__meta"></span></div>
+                <div class="mkrow"><span class="mkrow__pill"></span><span class="mkrow__bar"></span><span class="mkrow__meta"></span></div>
+                <div class="mkrow"><span class="mkrow__pill"></span><span class="mkrow__bar"></span><span class="mkrow__meta"></span></div>
+                <div class="mkrow"><span class="mkrow__pill"></span><span class="mkrow__bar"></span><span class="mkrow__meta"></span></div>
+                <div class="mkrow"><span class="mkrow__pill"></span><span class="mkrow__bar"></span><span class="mkrow__meta"></span></div>
+              </div>
+
+              <div class="mock__view mock__view--calendario">
+                <div class="mkcal__head"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="mkcal__grid">
+                  <span class="mkcal__cell"></span><span class="mkcal__cell"><i class="mkev"></i></span><span class="mkcal__cell"></span>
+                  <span class="mkcal__cell mkcal__cell--today"><i class="mkev"></i></span><span class="mkcal__cell"></span><span class="mkcal__cell"></span><span class="mkcal__cell"></span>
+                  <span class="mkcal__cell"></span><span class="mkcal__cell"></span><span class="mkcal__cell"><i class="mkev"></i></span><span class="mkcal__cell"></span>
+                  <span class="mkcal__cell"><i class="mkev"></i></span><span class="mkcal__cell"></span><span class="mkcal__cell"></span>
+                </div>
+              </div>
+
+              <div class="mock__view mock__view--tarjetas">
+                <span class="mktile"></span><span class="mktile"></span><span class="mktile"></span>
+                <span class="mktile"></span><span class="mktile"></span><span class="mktile"></span>
+              </div>
+
+            </main>
+          </div>
+        </div>
+        <p class="custom__cap mono">Vista previa · el mismo software, distintas formas de organizarlo.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ 04 · LABORATORIO (compilador) ══════════ -->
+  <section class="section lab" id="laboratorio">
+    <div class="section__head">
+      <p class="section__num">04</p>
       <h2 class="section__title">Compilá tu sistema</h2>
       <p class="section__desc">
         Elegí capacidades. La arquitectura, el cronograma y el impacto estimado se recalculan
@@ -307,11 +428,11 @@
     </div>
   </section>
 
-  <!-- ══════════ 04 · PROCESO (riel horizontal) ══════════ -->
+  <!-- ══════════ 05 · PROCESO (riel horizontal) ══════════ -->
   <section class="proceso" id="proceso">
     <div class="proceso__sticky">
       <div class="section__head section__head--inline">
-        <p class="section__num">04</p>
+        <p class="section__num">05</p>
         <h2 class="section__title">Cómo se construye</h2>
       </div>
 
@@ -354,10 +475,10 @@
     </div>
   </section>
 
-  <!-- ══════════ 05 · DEMO ══════════ -->
+  <!-- ══════════ 06 · DEMO ══════════ -->
   <section class="section demo" id="demo">
     <div class="section__head">
-      <p class="section__num">05</p>
+      <p class="section__num">06</p>
       <h2 class="section__title">Probalo ahora mismo</h2>
       <p class="section__desc">
         Un agente de demostración, ya contextualizado con el rubro que elegiste arriba.
@@ -406,7 +527,7 @@
     </div>
   </section>
 
-  <!-- ══════════ 06 · NOSOTROS ══════════ -->
+  <!-- ══════════ 07 · NOSOTROS ══════════ -->
   <section class="section nosotros" id="nosotros">
 
     <!-- filtro duotono (serigrafía tinta→hueso) aplicado a las fotos -->
@@ -425,7 +546,7 @@
     </svg>
 
     <div class="section__head">
-      <p class="section__num">06</p>
+      <p class="section__num">07</p>
       <h2 class="section__title">Dos oficios, un mismo producto</h2>
       <p class="section__desc">
         IASOFTLAB nace del cruce de dos mundos que rara vez se sientan en la misma mesa:
@@ -588,12 +709,12 @@
     </div>
   </section>
 
-  <!-- ══════════ 07 · CONTACTO ══════════ -->
+  <!-- ══════════ 08 · CONTACTO ══════════ -->
   <section class="section contacto" id="contacto">
     <div class="contacto__grid">
 
       <div class="contacto__aside">
-        <p class="section__num">07</p>
+        <p class="section__num">08</p>
         <h2 class="section__title">Empecemos por el diagnóstico</h2>
         <p class="section__desc">
           Cuarenta y cinco minutos, sin costo. Salís con un mapa de dónde la IA te conviene
@@ -670,6 +791,7 @@
 <script src="assets/js/pipeline.js"></script>
 <script src="assets/js/agent-demo.js"></script>
 <script src="assets/js/vision.js"></script>
+<script src="assets/js/custom.js"></script>
 <script src="assets/js/site.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
